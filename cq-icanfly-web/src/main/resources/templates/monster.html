@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div id="haha">
+    <table>
+        <tr>
+            <th>怪物Id</th>
+            <th>怪物名称</th>
+            <th>掉落组Id</th>
+        </tr>
+        <tr th:each="monster : ${monsters}">
+            <td th:text="${monster.entityid}"></td>
+            <td th:text="${monster.name}"></td>
+            <td th:text="${monster.dropid}"></td>
+        </tr>
+    </table>
+</div>
+
+<div id="dropInfo" th:fragment="dropInfo">
+    <p th:text="${dropInfo.dropGroupId}"></p>
+    <p th:text="${dropInfo.dropGroupType}"></p>
+</div>
+
+
+</body>
+</html>

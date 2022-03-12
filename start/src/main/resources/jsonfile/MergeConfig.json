@@ -1,0 +1,333 @@
+{
+  "1": {
+    "1": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 1,
+      "levelconds": 1,
+      "name": "魂玉",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "2": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 2,
+      "levelconds": 1,
+      "name": "勋章",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "3": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 3,
+      "levelconds": 1,
+      "name": "治疗宝玉",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "4": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 4,
+      "levelconds": 1,
+      "name": "神装-斗笠",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "5": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 5,
+      "levelconds": 1,
+      "name": "神装-盾牌",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "6": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 6,
+      "levelconds": 1,
+      "name": "神装-面甲",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "7": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 7,
+      "levelconds": 1,
+      "name": "神装-披风",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "8": {
+      "dayconds": 1,
+      "id": 1,
+      "index": 8,
+      "levelconds": 1,
+      "name": "官职证明",
+      "rebornconds": 2,
+      "Uitype": 1
+    },
+    "9": {
+      "dayconds": 60,
+      "id": 1,
+      "index": 9,
+      "levelconds": 1,
+      "name": "星月装备",
+      "rebornconds": 2,
+      "Uitype": 2
+    }
+  },
+  "2": {
+    "1": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 1,
+      "levelconds": 1,
+      "name": "特权",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "2": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 2,
+      "levelconds": 1,
+      "name": "证明兑换",
+      "rebornconds": 2,
+      "Uitype": 2
+    },
+    "3": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 3,
+      "levelconds": 1,
+      "name": "神水",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "4": {
+      "dayconds": 5,
+      "id": 2,
+      "index": 4,
+      "levelconds": 1,
+      "name": "圣宠",
+      "rebornconds": 999,
+      "Uitype": 1
+    },
+    "5": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 5,
+      "levelconds": 1,
+      "name": "高阶材料",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "6": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 6,
+      "levelconds": 1,
+      "name": "转生-魂火",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "7": {
+      "dayconds": 1,
+      "id": 2,
+      "index": 7,
+      "levelconds": 1,
+      "name": "转生-曜石",
+      "rebornconds": 0,
+      "Uitype": 1
+    }
+  },
+  "3": {
+    "1": {
+      "dayconds": 1,
+      "id": 3,
+      "index": 1,
+      "levelconds": 1,
+      "name": "佩饰",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "2": {
+      "dayconds": 1,
+      "id": 3,
+      "index": 2,
+      "levelconds": 1,
+      "name": "装备凭证",
+      "rebornconds": 0,
+      "Uitype": 2
+    }
+  },
+  "4": {
+    "1": {
+      "dayconds": 1,
+      "id": 4,
+      "index": 1,
+      "levelconds": 1,
+      "name": "神兵",
+      "rebornconds": 4,
+      "Uitype": 2
+    },
+    "2": {
+      "dayconds": 1,
+      "id": 4,
+      "index": 2,
+      "levelconds": 1,
+      "name": "天之神兵",
+      "rebornconds": 4,
+      "Uitype": 2
+    },
+    "3": {
+      "dayconds": 1,
+      "id": 4,
+      "index": 3,
+      "levelconds": 1,
+      "name": "圣甲",
+      "rebornconds": 4,
+      "Uitype": 2
+    },
+    "4": {
+      "dayconds": 1,
+      "id": 4,
+      "index": 4,
+      "levelconds": 1,
+      "name": "天之圣甲",
+      "rebornconds": 4,
+      "Uitype": 2
+    },
+    "5": {
+      "dayconds": 1,
+      "id": 4,
+      "index": 5,
+      "levelconds": 1,
+      "name": "天之互换",
+      "rebornconds": 4,
+      "Uitype": 2
+    }
+  },
+  "5": {
+    "1": {
+      "dayconds": 1,
+      "id": 5,
+      "index": 1,
+      "levelconds": 1,
+      "name": "祝福国庆",
+      "rebornconds": 999,
+      "Uitype": 2
+    }
+  },
+  "6": {
+    "1": {
+      "dayconds": 8,
+      "id": 6,
+      "index": 1,
+      "levelconds": 1,
+      "name": "银花簪",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "2": {
+      "dayconds": 8,
+      "id": 6,
+      "index": 2,
+      "levelconds": 1,
+      "name": "养心玉",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "3": {
+      "dayconds": 8,
+      "id": 6,
+      "index": 3,
+      "levelconds": 1,
+      "name": "金曜珠",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "4": {
+      "dayconds": 8,
+      "id": 6,
+      "index": 4,
+      "levelconds": 1,
+      "name": "黑檀石",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "5": {
+      "dayconds": 30,
+      "id": 6,
+      "index": 5,
+      "levelconds": 1,
+      "name": "檀珠",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "6": {
+      "dayconds": 60,
+      "id": 6,
+      "index": 6,
+      "levelconds": 1,
+      "name": "易筋经",
+      "rebornconds": 0,
+      "Uitype": 2
+    },
+    "7": {
+      "dayconds": 1,
+      "id": 6,
+      "index": 7,
+      "levelconds": 1,
+      "name": "内功秘籍",
+      "rebornconds": 6,
+      "Uitype": 2
+    }
+  },
+  "7": {
+    "1": {
+      "dayconds": 1,
+      "id": 7,
+      "index": 1,
+      "levelconds": 1,
+      "name": "换真充",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "2": {
+      "dayconds": 1,
+      "id": 7,
+      "index": 2,
+      "levelconds": 1,
+      "name": "红包合成",
+      "rebornconds": 0,
+      "Uitype": 1
+    },
+    "3": {
+      "dayconds": 1,
+      "id": 7,
+      "index": 3,
+      "levelconds": 1,
+      "name": "银两兑换",
+      "rebornconds": 0,
+      "Uitype": 1
+    }
+  },
+  "8": {
+    "1": {
+      "dayconds": 15,
+      "id": 8,
+      "index": 1,
+      "levelconds": 1,
+      "name": "字诀",
+      "rebornconds": 3,
+      "Uitype": 2
+    }
+  }
+}
