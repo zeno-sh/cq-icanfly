@@ -43,32 +43,32 @@
         <table tableName="CQ_Config_File" domainObjectName="ConfigFilePO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
             <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
         </table>
         <table tableName="CQ_File_Edit" domainObjectName="FileEditPO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
             <columnOverride column="file_config" javaType="java.lang.String" jdbcType="VARCHAR"/>
             <columnOverride column="file_json" javaType="java.lang.String" jdbcType="VARCHAR"/>
         </table>
         <table tableName="CQ_Config_Publish" domainObjectName="ConfigPublishPO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="CQ_Publish_Log" domainObjectName="PublishLogPO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="CQ_Groovy_Script" domainObjectName="GroovyScriptPO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
     </context>

@@ -5,21 +5,21 @@ import java.util.Date;
 public class FileEditPO {
     private Integer id;
 
-    private Integer file_id;
+    private Integer fileId;
 
-    private String file_config;
+    private String fileConfig;
 
-    private String file_json;
+    private String fileJson;
 
     private Integer status;
 
-    private Date create_time;
+    private Date createTime;
 
-    private Date update_time;
+    private Date updateTime;
 
-    private String create_by;
+    private String createBy;
 
-    private String udpate_by;
+    private String udpateBy;
 
     public Integer getId() {
         return id;
@@ -29,28 +29,28 @@ public class FileEditPO {
         this.id = id;
     }
 
-    public Integer getFile_id() {
-        return file_id;
+    public Integer getFileId() {
+        return fileId;
     }
 
-    public void setFile_id(Integer file_id) {
-        this.file_id = file_id;
+    public void setFileId(Integer fileId) {
+        this.fileId = fileId;
     }
 
-    public String getFile_config() {
-        return file_config;
+    public String getFileConfig() {
+        return fileConfig;
     }
 
-    public void setFile_config(String file_config) {
-        this.file_config = file_config == null ? null : file_config.trim();
+    public void setFileConfig(String fileConfig) {
+        this.fileConfig = fileConfig == null ? null : fileConfig.trim();
     }
 
-    public String getFile_json() {
-        return file_json;
+    public String getFileJson() {
+        return fileJson;
     }
 
-    public void setFile_json(String file_json) {
-        this.file_json = file_json == null ? null : file_json.trim();
+    public void setFileJson(String fileJson) {
+        this.fileJson = fileJson == null ? null : fileJson.trim();
     }
 
     public Integer getStatus() {
@@ -61,35 +61,35 @@ public class FileEditPO {
         this.status = status;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getCreate_by() {
-        return create_by;
+    public String getCreateBy() {
+        return createBy;
     }
 
-    public void setCreate_by(String create_by) {
-        this.create_by = create_by == null ? null : create_by.trim();
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUdpate_by() {
-        return udpate_by;
+    public String getUdpateBy() {
+        return udpateBy;
     }
 
-    public void setUdpate_by(String udpate_by) {
-        this.udpate_by = udpate_by == null ? null : udpate_by.trim();
+    public void setUdpateBy(String udpateBy) {
+        this.udpateBy = udpateBy == null ? null : udpateBy.trim();
     }
 }

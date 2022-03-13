@@ -5,17 +5,17 @@ import java.util.Date;
 public class PublishLogPO {
     private Integer id;
 
-    private Date publish_time;
+    private Date publishTime;
 
-    private Date rollback_time;
+    private Date rollbackTime;
 
-    private Date create_time;
+    private Date createTime;
 
-    private Date update_time;
+    private Date updateTime;
 
-    private String create_by;
+    private String createBy;
 
-    private String udpate_by;
+    private String udpateBy;
 
     public Integer getId() {
         return id;
@@ -25,51 +25,51 @@ public class PublishLogPO {
         this.id = id;
     }
 
-    public Date getPublish_time() {
-        return publish_time;
+    public Date getPublishTime() {
+        return publishTime;
     }
 
-    public void setPublish_time(Date publish_time) {
-        this.publish_time = publish_time;
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
     }
 
-    public Date getRollback_time() {
-        return rollback_time;
+    public Date getRollbackTime() {
+        return rollbackTime;
     }
 
-    public void setRollback_time(Date rollback_time) {
-        this.rollback_time = rollback_time;
+    public void setRollbackTime(Date rollbackTime) {
+        this.rollbackTime = rollbackTime;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public String getCreate_by() {
-        return create_by;
+    public String getCreateBy() {
+        return createBy;
     }
 
-    public void setCreate_by(String create_by) {
-        this.create_by = create_by == null ? null : create_by.trim();
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUdpate_by() {
-        return udpate_by;
+    public String getUdpateBy() {
+        return udpateBy;
     }
 
-    public void setUdpate_by(String udpate_by) {
-        this.udpate_by = udpate_by == null ? null : udpate_by.trim();
+    public void setUdpateBy(String udpateBy) {
+        this.udpateBy = udpateBy == null ? null : udpateBy.trim();
     }
 }

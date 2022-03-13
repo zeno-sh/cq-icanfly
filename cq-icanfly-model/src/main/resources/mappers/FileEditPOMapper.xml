@@ -3,14 +3,14 @@
 <mapper namespace="com.zeno.cqicanfly.mybatis.mapper.FileEditPOMapper">
   <resultMap id="BaseResultMap" type="com.zeno.cqicanfly.mybatis.entity.FileEditPO">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="file_id" jdbcType="INTEGER" property="file_id" />
-    <result column="file_config" jdbcType="VARCHAR" property="file_config" />
-    <result column="file_json" jdbcType="VARCHAR" property="file_json" />
+    <result column="file_id" jdbcType="INTEGER" property="fileId" />
+    <result column="file_config" jdbcType="VARCHAR" property="fileConfig" />
+    <result column="file_json" jdbcType="VARCHAR" property="fileJson" />
     <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
-    <result column="create_by" jdbcType="VARCHAR" property="create_by" />
-    <result column="udpate_by" jdbcType="VARCHAR" property="udpate_by" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="udpate_by" jdbcType="VARCHAR" property="udpateBy" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -110,9 +110,9 @@
       file_json, status, create_time, 
       update_time, create_by, udpate_by
       )
-    values (#{id,jdbcType=INTEGER}, #{file_id,jdbcType=INTEGER}, #{file_config,jdbcType=VARCHAR}, 
-      #{file_json,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{create_time,jdbcType=TIMESTAMP}, 
-      #{update_time,jdbcType=TIMESTAMP}, #{create_by,jdbcType=VARCHAR}, #{udpate_by,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, #{fileConfig,jdbcType=VARCHAR}, 
+      #{fileJson,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{udpateBy,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zeno.cqicanfly.mybatis.entity.FileEditPO">
@@ -121,28 +121,28 @@
       <if test="id != null">
         id,
       </if>
-      <if test="file_id != null">
+      <if test="fileId != null">
         file_id,
       </if>
-      <if test="file_config != null">
+      <if test="fileConfig != null">
         file_config,
       </if>
-      <if test="file_json != null">
+      <if test="fileJson != null">
         file_json,
       </if>
       <if test="status != null">
         status,
       </if>
-      <if test="create_time != null">
+      <if test="createTime != null">
         create_time,
       </if>
-      <if test="update_time != null">
+      <if test="updateTime != null">
         update_time,
       </if>
-      <if test="create_by != null">
+      <if test="createBy != null">
         create_by,
       </if>
-      <if test="udpate_by != null">
+      <if test="udpateBy != null">
         udpate_by,
       </if>
     </trim>
@@ -150,29 +150,29 @@
       <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="file_id != null">
-        #{file_id,jdbcType=INTEGER},
+      <if test="fileId != null">
+        #{fileId,jdbcType=INTEGER},
       </if>
-      <if test="file_config != null">
-        #{file_config,jdbcType=VARCHAR},
+      <if test="fileConfig != null">
+        #{fileConfig,jdbcType=VARCHAR},
       </if>
-      <if test="file_json != null">
-        #{file_json,jdbcType=VARCHAR},
+      <if test="fileJson != null">
+        #{fileJson,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
       </if>
-      <if test="create_time != null">
-        #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="update_time != null">
-        #{update_time,jdbcType=TIMESTAMP},
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="create_by != null">
-        #{create_by,jdbcType=VARCHAR},
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
       </if>
-      <if test="udpate_by != null">
-        #{udpate_by,jdbcType=VARCHAR},
+      <if test="udpateBy != null">
+        #{udpateBy,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -188,29 +188,29 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.file_id != null">
-        file_id = #{record.file_id,jdbcType=INTEGER},
+      <if test="record.fileId != null">
+        file_id = #{record.fileId,jdbcType=INTEGER},
       </if>
-      <if test="record.file_config != null">
-        file_config = #{record.file_config,jdbcType=VARCHAR},
+      <if test="record.fileConfig != null">
+        file_config = #{record.fileConfig,jdbcType=VARCHAR},
       </if>
-      <if test="record.file_json != null">
-        file_json = #{record.file_json,jdbcType=VARCHAR},
+      <if test="record.fileJson != null">
+        file_json = #{record.fileJson,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
-      <if test="record.create_time != null">
-        create_time = #{record.create_time,jdbcType=TIMESTAMP},
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.update_time != null">
-        update_time = #{record.update_time,jdbcType=TIMESTAMP},
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.create_by != null">
-        create_by = #{record.create_by,jdbcType=VARCHAR},
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=VARCHAR},
       </if>
-      <if test="record.udpate_by != null">
-        udpate_by = #{record.udpate_by,jdbcType=VARCHAR},
+      <if test="record.udpateBy != null">
+        udpate_by = #{record.udpateBy,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -220,14 +220,14 @@
   <update id="updateByExample" parameterType="map">
     update CQ_File_Edit
     set id = #{record.id,jdbcType=INTEGER},
-      file_id = #{record.file_id,jdbcType=INTEGER},
-      file_config = #{record.file_config,jdbcType=VARCHAR},
-      file_json = #{record.file_json,jdbcType=VARCHAR},
+      file_id = #{record.fileId,jdbcType=INTEGER},
+      file_config = #{record.fileConfig,jdbcType=VARCHAR},
+      file_json = #{record.fileJson,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
-      create_time = #{record.create_time,jdbcType=TIMESTAMP},
-      update_time = #{record.update_time,jdbcType=TIMESTAMP},
-      create_by = #{record.create_by,jdbcType=VARCHAR},
-      udpate_by = #{record.udpate_by,jdbcType=VARCHAR}
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_by = #{record.createBy,jdbcType=VARCHAR},
+      udpate_by = #{record.udpateBy,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -235,43 +235,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.zeno.cqicanfly.mybatis.entity.FileEditPO">
     update CQ_File_Edit
     <set>
-      <if test="file_id != null">
-        file_id = #{file_id,jdbcType=INTEGER},
+      <if test="fileId != null">
+        file_id = #{fileId,jdbcType=INTEGER},
       </if>
-      <if test="file_config != null">
-        file_config = #{file_config,jdbcType=VARCHAR},
+      <if test="fileConfig != null">
+        file_config = #{fileConfig,jdbcType=VARCHAR},
       </if>
-      <if test="file_json != null">
-        file_json = #{file_json,jdbcType=VARCHAR},
+      <if test="fileJson != null">
+        file_json = #{fileJson,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
       </if>
-      <if test="create_time != null">
-        create_time = #{create_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="update_time != null">
-        update_time = #{update_time,jdbcType=TIMESTAMP},
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="create_by != null">
-        create_by = #{create_by,jdbcType=VARCHAR},
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
       </if>
-      <if test="udpate_by != null">
-        udpate_by = #{udpate_by,jdbcType=VARCHAR},
+      <if test="udpateBy != null">
+        udpate_by = #{udpateBy,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zeno.cqicanfly.mybatis.entity.FileEditPO">
     update CQ_File_Edit
-    set file_id = #{file_id,jdbcType=INTEGER},
-      file_config = #{file_config,jdbcType=VARCHAR},
-      file_json = #{file_json,jdbcType=VARCHAR},
+    set file_id = #{fileId,jdbcType=INTEGER},
+      file_config = #{fileConfig,jdbcType=VARCHAR},
+      file_json = #{fileJson,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      create_by = #{create_by,jdbcType=VARCHAR},
-      udpate_by = #{udpate_by,jdbcType=VARCHAR}
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      udpate_by = #{udpateBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
