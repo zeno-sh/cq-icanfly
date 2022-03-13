@@ -2,6 +2,8 @@ package com.zeno.cqicanfly;
 
 import com.zeno.cqicanfly.exception.Json2LuaException;
 
+import java.io.IOException;
+
 /**
  * @Author zeno
  * @Date 2022/3/13
@@ -15,5 +17,5 @@ public interface Json2LuaService {
      * @return
      * @throws Json2LuaException
      */
-    String luaStringByJson(String jsonFilePath) throws Json2LuaException;
+    String luaStringByJson(String jsonFilePath) throws Json2LuaException, IOException, InterruptedException;
 }
