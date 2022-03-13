@@ -35,4 +35,9 @@ public class DropTableRepository {
         criteria.andIdIn(ids);
         return dropTablePOMapper.selectByExample(example);
     }
+
+    public List<DropTablePO> queryAll() {
+        DropTablePOExample example = new DropTablePOExample();
+        return dropTablePOMapper.selectByExample(example);
+    }
 }
