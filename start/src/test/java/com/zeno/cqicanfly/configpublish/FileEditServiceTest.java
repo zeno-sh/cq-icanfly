@@ -1,6 +1,8 @@
 package com.zeno.cqicanfly.configpublish;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zeno.cqicanfly.Lua2JsonService;
+import com.zeno.cqicanfly.dto.luaconfig.FileEditDTO;
 import com.zeno.cqicanfly.repository.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,12 @@ class FileEditServiceTest extends BaseTest {
 
     @Test
     void modifyFileEditStatus() {
+    }
+
+    @Test
+    void queryPublishByFileId(){
+        Integer fileId = 3;
+        FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
+        System.out.println(JSONObject.toJSONString(fileEditDTO));
     }
 }

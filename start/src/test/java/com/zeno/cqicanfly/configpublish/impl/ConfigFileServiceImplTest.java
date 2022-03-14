@@ -18,9 +18,9 @@ class ConfigFileServiceImplTest extends BaseTest {
 
     @Test
     void saveConfigFile() {
-        String fileName = "Monster.config";
-        String filePath = "/config/monster/";
-        String fileHeader = "Monster=";
+        String fileName = "StdItems.config";
+        String filePath = "/config/item/";
+        String fileHeader = "StdItems=";
         Integer toPhp = 1;
 
         Boolean result = configFileService.saveConfigFile(fileName, filePath, fileHeader, toPhp);

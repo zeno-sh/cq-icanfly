@@ -8,6 +8,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class FileEditRepository {
         criteria.andFileIdEqualTo(fileId);
         List<FileEditPO> fileEditPOS = fileEditPOMapper.selectByExample(example);
         if (CollectionUtils.isEmpty(fileEditPOS)) {
-            throw new DbQueryException("没有找到编辑信息");
+            return Collections.emptyList();
         }
         return fileEditPOS;
     }
@@ -42,5 +43,18 @@ public class FileEditRepository {
         }
         po.setStatus(status);
         return fileEditPOMapper.updateByPrimaryKeySelective(po) > 0;
+    }
+
+    public FileEditPO queryByFileIdAndStatus(Integer fileId, Integer status) {
+        FileEditPOExample example = new FileEditPOExample();
+        example.setOrderByClause(" version desc");
+        FileEditPOExample.Criteria criteria = example.createCriteria();
+        criteria.andFileIdEqualTo(fileId);
+        criteria.andStatusEqualTo(status);
+        List<FileEditPO> fileEditPOS = fileEditPOMapper.selectByExample(example);
+        if (CollectionUtils.isEmpty(fileEditPOS)) {
+            return null;
+        }
+        return fileEditPOS.get(0);
     }
 }

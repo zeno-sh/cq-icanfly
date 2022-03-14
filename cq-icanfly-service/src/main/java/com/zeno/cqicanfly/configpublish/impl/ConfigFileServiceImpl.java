@@ -5,6 +5,7 @@ import com.zeno.cqicanfly.configpublish.ConfigFileService;
 import com.zeno.cqicanfly.dto.luaconfig.ConfigFileDTO;
 import com.zeno.cqicanfly.enums.ToPhpEnum;
 import com.zeno.cqicanfly.exception.DbQueryException;
+import com.zeno.cqicanfly.exception.QueryException;
 import com.zeno.cqicanfly.mybatis.entity.ConfigFilePO;
 import com.zeno.cqicanfly.repository.ConfigFileRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -47,7 +48,18 @@ public class ConfigFileServiceImpl implements ConfigFileService {
     }
 
     @Override
-    public ConfigFilePO queryByFileName(String fileName) throws DbQueryException {
-        return null;
+    public ConfigFileDTO queryByFileName(String fileName) throws DbQueryException {
+        ConfigFilePO po = configFileRepository.queryByFileName(fileName);
+        if (po == null) {
+            throw new QueryException("查询文件失败");
+        }
+        ConfigFileDTO dto = new ConfigFileDTO();
+        dto.setFileId(po.getId());
+        dto.setFilePath(po.getFilePath());
+        dto.setFileName(po.getFileName());
+        dto.setFileLuaTableHeader(po.getFileLuaTableHeader());
+        dto.setToPhpStatus(po.getToPhpStatus()==ToPhpEnum.YES.getCode());
+
+        return dto;
     }
 }

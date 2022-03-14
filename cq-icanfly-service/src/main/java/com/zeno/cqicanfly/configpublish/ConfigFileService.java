@@ -21,7 +21,21 @@ public interface ConfigFileService {
      */
     Boolean saveConfigFile(String fileName, String relativePath, String fileHeader, Integer toPhp);
 
+    /**
+     * 根据文件Id查询
+     *
+     * @param fileId
+     * @return
+     * @throws DbQueryException
+     */
     ConfigFileDTO queryByFileId(Integer fileId) throws DbQueryException;
 
-    ConfigFilePO queryByFileName(String fileName) throws DbQueryException;
+    /**
+     * 根据文件名称查询配置
+     *
+     * @param fileName
+     * @return
+     * @throws DbQueryException
+     */
+    ConfigFileDTO queryByFileName(String fileName) throws DbQueryException;
 }

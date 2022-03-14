@@ -5,7 +5,7 @@ import com.zeno.cqicanfly.configpublish.FileEditService;
 import com.zeno.cqicanfly.repository.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import utils.JsonFileLoadUtils;
+import utils.FileLoadUtils;
 
 import java.io.IOException;
 
@@ -22,19 +22,37 @@ class Lua2JsonServiceImplTest extends BaseTest {
 
     @Test
     void jsonStringByLua() throws Exception {
-//        String luaFile = "/Users/zhulinfeng/Documents/GitSpace/cq-icanfly/start/src/main/resources/luafile/Scences.lua";
-        String luaFile = "/Users/zhulinfeng/Documents/GitSpace/cq-icanfly/start/src/main/resources/luafile/Monster.lua";
-        String json = readLuaFile(luaFile);
-        String fileStr = JsonFileLoadUtils.loadJsonFile(luaFile);
-//        System.out.println(fileStr);
-        Boolean result = fileEditService.modifyFileConfig(1, fileStr, json);
-        System.out.println(result);
+
+        String dropGroupFile = "/Users/zhulinfeng/Documents/GitSpace/cq-icanfly/start/src/main/resources/luafile/DropGroup.lua";
+        String dropTableFile = "/Users/zhulinfeng/Documents/GitSpace/cq-icanfly/start/src/main/resources/luafile/DropTable.lua";
+        String itemFile = "/Users/zhulinfeng/Documents/GitSpace/cq-icanfly/start/src/main/resources/luafile/StdItems.lua";
+
+        String dropGroupFileStr = FileLoadUtils.loadFile(dropGroupFile);
+        String dropTableFileStr = FileLoadUtils.loadFile(dropTableFile);
+        String itemFileStr = FileLoadUtils.loadFile(itemFile);
+
+        String dropGroupFileJson = readLuaFile(dropGroupFile);
+        String dropTableFileJson = readLuaFile(dropTableFile);
+        String itemFileJson = readLuaFile(itemFile);
+
+
+        Integer dropGroupFileId = 2;
+        Integer dropTableFileId = 3;
+        Integer itemFileId = 4;
+
+        save(dropGroupFileId, dropGroupFileStr, dropGroupFileJson);
+        save(dropTableFileId, dropTableFileStr, dropTableFileJson);
+        save(itemFileId, itemFileStr, itemFileJson);
+    }
+
+    private void save(Integer fileId, String fileStr, String json) {
+        Boolean result = fileEditService.modifyFileConfig(fileId, fileStr, json);
+//        System.out.println(result);
     }
 
     private String readLuaFile(String luaFile) {
         try {
             String luaStr = lua2JsonService.readJsonString(luaFile);
-            System.out.println(luaStr);
             return luaStr;
         } catch (IOException e) {
             e.printStackTrace();

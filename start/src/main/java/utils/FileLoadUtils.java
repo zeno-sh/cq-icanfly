@@ -3,13 +3,13 @@ package utils;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class JsonFileLoadUtils {
+public class FileLoadUtils {
 
-    public static String loadJsonFile(String jsonFilePath) throws Exception {
+    public static String loadFile(String filePath) throws Exception {
         //读取json文件
         String jsonStr = "";
         try {
-            File jsonFile = new File(jsonFilePath);
+            File jsonFile = new File(filePath);
             FileReader fileReader = new FileReader(jsonFile);
             Reader reader = new InputStreamReader(new FileInputStream(jsonFile), "utf-8");
             int ch = 0;

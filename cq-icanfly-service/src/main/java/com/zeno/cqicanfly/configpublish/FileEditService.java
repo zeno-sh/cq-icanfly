@@ -1,5 +1,7 @@
 package com.zeno.cqicanfly.configpublish;
 
+import com.zeno.cqicanfly.dto.luaconfig.FileEditDTO;
+
 /**
  * @Author zeno
  * @Date 2022/3/13
@@ -24,4 +26,12 @@ public interface FileEditService {
      * @return
      */
     Boolean modifyFileEditStatus(Integer editId, Integer status);
+
+    /**
+     * 根据文件Id查询
+     *
+     * @param fileId
+     * @return 最新版本的信息
+     */
+    FileEditDTO queryPublishByFileId(Integer fileId);
 }

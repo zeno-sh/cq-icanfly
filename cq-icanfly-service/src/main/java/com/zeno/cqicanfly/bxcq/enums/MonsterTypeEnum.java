@@ -15,13 +15,24 @@ public enum MonsterTypeEnum implements BaseEnum{
     HUMAN(7, "人形怪"),
     WORLD_BOSS(8, "世界BOSS"),
     PERSON_BOSS(9, "个人BOSS"),
+    KUAFU_BOSS(10, "跨服BOSS"),
     ;
 
-    private int code;
+    private Integer code;
     private String desc;
 
-    MonsterTypeEnum(int code, String desc) {
+    MonsterTypeEnum(Integer code, String desc) {
         this.code = code;
         this.desc = desc;
+    }
+
+    public static boolean contains(int code) {
+        MonsterTypeEnum[] values = MonsterTypeEnum.values();
+        for (MonsterTypeEnum monsterTypeEnum : values) {
+            if (code == monsterTypeEnum.getCode()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

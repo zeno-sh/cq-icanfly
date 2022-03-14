@@ -36,7 +36,7 @@ public class ConfigFileRepository {
         }
         List<ConfigFilePO> configFilePOS = configFilePOMapper.selectByExample(example);
         if (CollectionUtils.isEmpty(configFilePOS)) {
-            throw new DbQueryException("没有查询到文件信息~");
+            return null;
         }
         return configFilePOS.get(0);
     }
