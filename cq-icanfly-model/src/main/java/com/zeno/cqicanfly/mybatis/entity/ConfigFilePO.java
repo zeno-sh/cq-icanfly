@@ -11,7 +11,7 @@ public class ConfigFilePO {
 
     private String fileLuaTableHeader;
 
-    private Boolean toPhpStatus;
+    private Integer toPhpStatus;
 
     private Integer status;
 
@@ -21,7 +21,7 @@ public class ConfigFilePO {
 
     private String createBy;
 
-    private String udpateBy;
+    private String updateBy;
 
     public Integer getId() {
         return id;
@@ -55,11 +55,11 @@ public class ConfigFilePO {
         this.fileLuaTableHeader = fileLuaTableHeader == null ? null : fileLuaTableHeader.trim();
     }
 
-    public Boolean getToPhpStatus() {
+    public Integer getToPhpStatus() {
         return toPhpStatus;
     }
 
-    public void setToPhpStatus(Boolean toPhpStatus) {
+    public void setToPhpStatus(Integer toPhpStatus) {
         this.toPhpStatus = toPhpStatus;
     }
 
@@ -95,11 +95,11 @@ public class ConfigFilePO {
         this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUdpateBy() {
-        return udpateBy;
+    public String getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUdpateBy(String udpateBy) {
-        this.udpateBy = udpateBy == null ? null : udpateBy.trim();
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
     }
 }

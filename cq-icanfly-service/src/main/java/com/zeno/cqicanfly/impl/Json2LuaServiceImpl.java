@@ -23,7 +23,7 @@ public class Json2LuaServiceImpl implements Json2LuaService {
     private String luaScript;
 
     @Override
-    public String luaStringByJson(String jsonFilePath) throws Json2LuaException, IOException, InterruptedException {
+    public String readLuaString(String jsonFilePath) throws Json2LuaException, IOException, InterruptedException {
 
         System.out.println("lua path=" + luaEnv);
         final Process process = Runtime.getRuntime().exec(

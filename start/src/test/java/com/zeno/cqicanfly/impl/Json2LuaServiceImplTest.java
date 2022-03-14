@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @Author zeno
  * @Date 2022/3/13
@@ -23,7 +21,7 @@ class Json2LuaServiceImplTest extends BaseTest {
         String jsonFile = "/Users/zhulinfeng/Documents/lua-config/ShopConfig.json";
         String s = null;
         try {
-            s = json2LuaService.luaStringByJson(jsonFile);
+            s = json2LuaService.readLuaString(jsonFile);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

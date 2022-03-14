@@ -1,4 +1,4 @@
-package com.zeno.cqicanfly.enums;
+package com.zeno.cqicanfly.bxcq.enums;
 
 import lombok.Getter;
 

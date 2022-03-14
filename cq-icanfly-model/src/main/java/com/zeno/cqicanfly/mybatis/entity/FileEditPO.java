@@ -11,6 +11,8 @@ public class FileEditPO {
 
     private String fileJson;
 
+    private Integer version;
+
     private Integer status;
 
     private Date createTime;
@@ -19,7 +21,7 @@ public class FileEditPO {
 
     private String createBy;
 
-    private String udpateBy;
+    private String updateBy;
 
     public Integer getId() {
         return id;
@@ -51,6 +53,14 @@ public class FileEditPO {
 
     public void setFileJson(String fileJson) {
         this.fileJson = fileJson == null ? null : fileJson.trim();
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public Integer getStatus() {
@@ -85,11 +95,11 @@ public class FileEditPO {
         this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUdpateBy() {
-        return udpateBy;
+    public String getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUdpateBy(String udpateBy) {
-        this.udpateBy = udpateBy == null ? null : udpateBy.trim();
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
     }
 }

@@ -1,5 +1,4 @@
---C-场景.xlsx 场景表
-Scenes={
+{
 [0] = {
 	sceneid = 0,
 	sceneType = 0,

@@ -45,6 +45,7 @@
                selectByExampleQueryId="true">
             <property name="useActualColumnNames" value="false"/>
             <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="to_php_status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
         </table>
         <table tableName="CQ_File_Edit" domainObjectName="FileEditPO" enableCountByExample="true"
                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"

@@ -15,7 +15,7 @@ public class ConfigPublishPO {
 
     private String createBy;
 
-    private String udpateBy;
+    private String updateBy;
 
     public Integer getId() {
         return id;
@@ -65,11 +65,11 @@ public class ConfigPublishPO {
         this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUdpateBy() {
-        return udpateBy;
+    public String getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUdpateBy(String udpateBy) {
-        this.udpateBy = udpateBy == null ? null : udpateBy.trim();
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
     }
 }

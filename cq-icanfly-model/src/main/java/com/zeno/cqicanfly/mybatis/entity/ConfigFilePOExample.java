@@ -385,52 +385,52 @@ public class ConfigFilePOExample {
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusEqualTo(Boolean value) {
+        public Criteria andToPhpStatusEqualTo(Integer value) {
             addCriterion("to_php_status =", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusNotEqualTo(Boolean value) {
+        public Criteria andToPhpStatusNotEqualTo(Integer value) {
             addCriterion("to_php_status <>", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusGreaterThan(Boolean value) {
+        public Criteria andToPhpStatusGreaterThan(Integer value) {
             addCriterion("to_php_status >", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andToPhpStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("to_php_status >=", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusLessThan(Boolean value) {
+        public Criteria andToPhpStatusLessThan(Integer value) {
             addCriterion("to_php_status <", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusLessThanOrEqualTo(Boolean value) {
+        public Criteria andToPhpStatusLessThanOrEqualTo(Integer value) {
             addCriterion("to_php_status <=", value, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusIn(List<Boolean> values) {
+        public Criteria andToPhpStatusIn(List<Integer> values) {
             addCriterion("to_php_status in", values, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusNotIn(List<Boolean> values) {
+        public Criteria andToPhpStatusNotIn(List<Integer> values) {
             addCriterion("to_php_status not in", values, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusBetween(Boolean value1, Boolean value2) {
+        public Criteria andToPhpStatusBetween(Integer value1, Integer value2) {
             addCriterion("to_php_status between", value1, value2, "toPhpStatus");
             return (Criteria) this;
         }
 
-        public Criteria andToPhpStatusNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andToPhpStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("to_php_status not between", value1, value2, "toPhpStatus");
             return (Criteria) this;
         }
@@ -685,73 +685,73 @@ public class ConfigFilePOExample {
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByIsNull() {
-            addCriterion("udpate_by is null");
+        public Criteria andUpdateByIsNull() {
+            addCriterion("update_by is null");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByIsNotNull() {
-            addCriterion("udpate_by is not null");
+        public Criteria andUpdateByIsNotNull() {
+            addCriterion("update_by is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByEqualTo(String value) {
-            addCriterion("udpate_by =", value, "udpateBy");
+        public Criteria andUpdateByEqualTo(String value) {
+            addCriterion("update_by =", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByNotEqualTo(String value) {
-            addCriterion("udpate_by <>", value, "udpateBy");
+        public Criteria andUpdateByNotEqualTo(String value) {
+            addCriterion("update_by <>", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByGreaterThan(String value) {
-            addCriterion("udpate_by >", value, "udpateBy");
+        public Criteria andUpdateByGreaterThan(String value) {
+            addCriterion("update_by >", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByGreaterThanOrEqualTo(String value) {
-            addCriterion("udpate_by >=", value, "udpateBy");
+        public Criteria andUpdateByGreaterThanOrEqualTo(String value) {
+            addCriterion("update_by >=", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByLessThan(String value) {
-            addCriterion("udpate_by <", value, "udpateBy");
+        public Criteria andUpdateByLessThan(String value) {
+            addCriterion("update_by <", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByLessThanOrEqualTo(String value) {
-            addCriterion("udpate_by <=", value, "udpateBy");
+        public Criteria andUpdateByLessThanOrEqualTo(String value) {
+            addCriterion("update_by <=", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByLike(String value) {
-            addCriterion("udpate_by like", value, "udpateBy");
+        public Criteria andUpdateByLike(String value) {
+            addCriterion("update_by like", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByNotLike(String value) {
-            addCriterion("udpate_by not like", value, "udpateBy");
+        public Criteria andUpdateByNotLike(String value) {
+            addCriterion("update_by not like", value, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByIn(List<String> values) {
-            addCriterion("udpate_by in", values, "udpateBy");
+        public Criteria andUpdateByIn(List<String> values) {
+            addCriterion("update_by in", values, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByNotIn(List<String> values) {
-            addCriterion("udpate_by not in", values, "udpateBy");
+        public Criteria andUpdateByNotIn(List<String> values) {
+            addCriterion("update_by not in", values, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByBetween(String value1, String value2) {
-            addCriterion("udpate_by between", value1, value2, "udpateBy");
+        public Criteria andUpdateByBetween(String value1, String value2) {
+            addCriterion("update_by between", value1, value2, "updateBy");
             return (Criteria) this;
         }
 
-        public Criteria andUdpateByNotBetween(String value1, String value2) {
-            addCriterion("udpate_by not between", value1, value2, "udpateBy");
+        public Criteria andUpdateByNotBetween(String value1, String value2) {
+            addCriterion("update_by not between", value1, value2, "updateBy");
             return (Criteria) this;
         }
     }

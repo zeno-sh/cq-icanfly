@@ -17,5 +17,5 @@ public interface Json2LuaService {
      * @return
      * @throws Json2LuaException
      */
-    String luaStringByJson(String jsonFilePath) throws Json2LuaException, IOException, InterruptedException;
+    String readLuaString(String jsonFilePath) throws Json2LuaException, IOException, InterruptedException;
 }

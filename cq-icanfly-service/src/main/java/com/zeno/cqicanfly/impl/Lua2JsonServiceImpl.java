@@ -24,7 +24,7 @@ public class Lua2JsonServiceImpl implements Lua2JsonService {
     private String luaScript;
 
     @Override
-    public String jsonStringByLua(String luaFilePath) throws Lua2JsonException, IOException, InterruptedException {
+    public String readJsonString(String luaFilePath) throws Lua2JsonException, IOException, InterruptedException {
 
         System.out.println("lua path=" + luaEnv);
         final Process process = Runtime.getRuntime().exec(
@@ -59,9 +59,9 @@ public class Lua2JsonServiceImpl implements Lua2JsonService {
         } finally {
             IOUtils.closeQuietly(errISR);
         }
-
         process.waitFor(30, TimeUnit.MINUTES);
         process.destroy();
         return sb.toString();
     }
+
 }

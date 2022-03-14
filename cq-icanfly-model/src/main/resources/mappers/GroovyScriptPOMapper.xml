@@ -8,7 +8,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    <result column="udpate_by" jdbcType="VARCHAR" property="udpateBy" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, file_id, script_path, create_time, update_time, create_by, udpate_by
+    id, file_id, script_path, create_time, update_time, create_by, update_by
   </sql>
   <select id="selectByExample" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPOExample" resultMap="BaseResultMap">
     select
@@ -78,7 +78,7 @@
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from CQ_Groovy_Script
+    from cq_groovy_script
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -89,29 +89,29 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from CQ_Groovy_Script
+    from cq_groovy_script
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from CQ_Groovy_Script
+    delete from cq_groovy_script
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPOExample">
-    delete from CQ_Groovy_Script
+    delete from cq_groovy_script
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPO">
-    insert into CQ_Groovy_Script (id, file_id, script_path, 
+    insert into cq_groovy_script (id, file_id, script_path, 
       create_time, update_time, create_by, 
-      udpate_by)
+      update_by)
     values (#{id,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, #{scriptPath,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
-      #{udpateBy,jdbcType=VARCHAR})
+      #{updateBy,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPO">
-    insert into CQ_Groovy_Script
+    insert into cq_groovy_script
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
@@ -131,8 +131,8 @@
       <if test="createBy != null">
         create_by,
       </if>
-      <if test="udpateBy != null">
-        udpate_by,
+      <if test="updateBy != null">
+        update_by,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -154,19 +154,19 @@
       <if test="createBy != null">
         #{createBy,jdbcType=VARCHAR},
       </if>
-      <if test="udpateBy != null">
-        #{udpateBy,jdbcType=VARCHAR},
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPOExample" resultType="java.lang.Long">
-    select count(*) from CQ_Groovy_Script
+    select count(*) from cq_groovy_script
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update CQ_Groovy_Script
+    update cq_groovy_script
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
@@ -186,8 +186,8 @@
       <if test="record.createBy != null">
         create_by = #{record.createBy,jdbcType=VARCHAR},
       </if>
-      <if test="record.udpateBy != null">
-        udpate_by = #{record.udpateBy,jdbcType=VARCHAR},
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -195,20 +195,20 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update CQ_Groovy_Script
+    update cq_groovy_script
     set id = #{record.id,jdbcType=INTEGER},
       file_id = #{record.fileId,jdbcType=INTEGER},
       script_path = #{record.scriptPath,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       create_by = #{record.createBy,jdbcType=VARCHAR},
-      udpate_by = #{record.udpateBy,jdbcType=VARCHAR}
+      update_by = #{record.updateBy,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPO">
-    update CQ_Groovy_Script
+    update cq_groovy_script
     <set>
       <if test="fileId != null">
         file_id = #{fileId,jdbcType=INTEGER},
@@ -225,20 +225,20 @@
       <if test="createBy != null">
         create_by = #{createBy,jdbcType=VARCHAR},
       </if>
-      <if test="udpateBy != null">
-        udpate_by = #{udpateBy,jdbcType=VARCHAR},
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zeno.cqicanfly.mybatis.entity.GroovyScriptPO">
-    update CQ_Groovy_Script
+    update cq_groovy_script
     set file_id = #{fileId,jdbcType=INTEGER},
       script_path = #{scriptPath,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       create_by = #{createBy,jdbcType=VARCHAR},
-      udpate_by = #{udpateBy,jdbcType=VARCHAR}
+      update_by = #{updateBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
