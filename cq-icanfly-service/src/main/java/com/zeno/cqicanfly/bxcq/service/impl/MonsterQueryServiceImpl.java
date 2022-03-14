@@ -16,7 +16,9 @@ import com.zeno.cqicanfly.exception.DbQueryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author zeno
@@ -66,6 +68,6 @@ public class MonsterQueryServiceImpl implements BaseService<MonsterBO>, MonsterQ
             }
             monsterBOList.add(bo);
         });
-        return monsterBOList;
+        return monsterBOList.stream().sorted(Comparator.comparing(MonsterBO::getMonsterId).reversed()).collect(Collectors.toList());
     }
 }
