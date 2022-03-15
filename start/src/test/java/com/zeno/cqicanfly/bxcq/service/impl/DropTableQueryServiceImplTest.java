@@ -22,7 +22,7 @@ class DropTableQueryServiceImplTest extends BaseTest {
 
     @Test
     void queryByDropTableId() {
-        List<DropTableBO> dropTableBOList = dropTableQueryService.queryByDropTableId(1021022);
+        List<DropTableBO> dropTableBOList = dropTableQueryService.queryByDropTableId(2010027);
         System.out.println(JSON.toJSONString(dropTableBOList));
     }
 

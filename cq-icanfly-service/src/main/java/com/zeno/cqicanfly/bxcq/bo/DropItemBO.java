@@ -45,10 +45,6 @@ public class DropItemBO implements Serializable {
      */
     private Integer itemType;
     /**
-     * 物品类型
-     */
-    private String itemTypeStr;
-    /**
      * 掉落数量
      */
     private Integer count;
