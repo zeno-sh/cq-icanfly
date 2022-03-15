@@ -2,6 +2,8 @@ package com.zeno.cqicanfly.bxcq.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zeno.cqicanfly.bxcq.bo.DropItemBO;
@@ -18,12 +20,15 @@ import com.zeno.cqicanfly.configpublish.FileEditService;
 import com.zeno.cqicanfly.dto.luaconfig.ConfigFileDTO;
 import com.zeno.cqicanfly.dto.luaconfig.FileEditDTO;
 import com.zeno.cqicanfly.exception.DbQueryException;
+import com.zeno.cqicanfly.exception.QueryException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -41,15 +46,23 @@ public class DropTableQueryServiceImpl implements DropTableQueryService, BaseSer
     @Autowired
     private StdItemQueryService stdItemQueryService;
 
+    Cache<String, String> configCache = CacheBuilder.newBuilder().expireAfterAccess(12, TimeUnit.HOURS).build();
+
+    private final String fileName = "droptable.config";
+
     @Override
-    public List<DropTableBO> queryByDropTableId(Integer dropTableId) {
-        ConfigFileDTO monsterFile = configFileService.queryByFileName("droptable.config");
-        if (monsterFile == null) {
-            throw new DbQueryException("查询掉落组配置文件失败");
-        }
-        Integer fileId = monsterFile.getFileId();
-        FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
-        String fileJson = fileEditDTO.getFileJson();
+    public List<DropTableBO> queryByDropTableId(Integer dropTableId) throws ExecutionException {
+
+
+        String fileJson = configCache.get(fileName, () -> {
+            ConfigFileDTO monsterFile = configFileService.queryByFileName(fileName);
+            if (monsterFile == null) {
+                throw new DbQueryException("查询掉落组配置文件失败");
+            }
+            Integer fileId = monsterFile.getFileId();
+            FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
+            return fileEditDTO.getFileJson();
+        });
         List<DropTableBO> dropTableBOList = jsonObjConverterBo(fileJson).stream().filter(dropTableBO -> dropTableBO.getDropTableId().equals(dropTableId)).collect(Collectors.toList());
 
         List<Integer> itemIds = dropTableBOList.stream().map(DropTableBO::getDropItems).flatMap(List::stream).map(DropItemBO::getItemId).collect(Collectors.toList());

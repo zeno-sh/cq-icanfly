@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +22,7 @@ class DropTableQueryServiceImplTest extends BaseTest {
     private DropTableQueryService dropTableQueryService;
 
     @Test
-    void queryByDropTableId() {
+    void queryByDropTableId() throws ExecutionException {
         List<DropTableBO> dropTableBOList = dropTableQueryService.queryByDropTableId(2010027);
         System.out.println(JSON.toJSONString(dropTableBOList));
     }

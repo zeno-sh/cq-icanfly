@@ -2,6 +2,8 @@ package com.zeno.cqicanfly.bxcq.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.zeno.cqicanfly.bxcq.bo.DropGroupBO;
@@ -25,6 +27,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -42,36 +46,48 @@ public class DropConfigQueryServiceImpl implements DropConfigQueryService, BaseS
     @Autowired
     private DropTableQueryService dropTableQueryService;
 
+    public Cache<Integer, FileEditDTO> configCache = CacheBuilder.newBuilder().expireAfterAccess(12, TimeUnit.HOURS).build();
+
+    private static final String fileName = "dropgroup.config";
+
     @Override
-    public DropGroupBO queryByDropGroupId(Integer dropGroupId) {
-        ConfigFileDTO monsterFile = configFileService.queryByFileName("dropgroup.config");
+    public DropGroupBO queryByDropGroupId(Integer dropGroupId) throws ExecutionException {
+        ConfigFileDTO monsterFile = configFileService.queryByFileName(fileName);
         if (monsterFile == null) {
             throw new DbQueryException("查询掉落组配置文件失败");
         }
         Integer fileId = monsterFile.getFileId();
-        FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
+        FileEditDTO fileEditDTO = configCache.get(fileId, () -> fileEditService.queryPublishByFileId(fileId));
         String fileJson = fileEditDTO.getFileJson();
-
         DropGroupBO dropGroupBO = new DropGroupBO();
 
         List<DropTableBO> allList = Lists.newArrayList();
-        List<DropGroupJsonBO> jsonBOList = jsonObjConverterBo(fileJson).stream().filter(dropGroupJsonBO -> dropGroupJsonBO.getId().equals(dropGroupId)).collect(Collectors.toList());;
+        List<DropGroupJsonBO> jsonBOList = jsonObjConverterBo(fileJson).stream().filter(dropGroupJsonBO -> dropGroupJsonBO.getId().equals(dropGroupId)).collect(Collectors.toList());
         if (CollectionUtils.isEmpty(jsonBOList)) {
             throw new QueryException("没有查询到掉落组信息");
         }
 
         DropGroupJsonBO jsonBO = jsonBOList.get(0);
+        String dropTypeStr= BaseEnum.valueOfEnum(DropTypeEnum.class, jsonBO.getType()).getDesc();
+        Integer dropType = jsonBO.getType();
         List<DropGroupJsonBO.GroupJsonBO> groupJsonBOList = jsonBO.getGroup();
         Map<Integer, Integer> sumRateMap = getSumRateMap(jsonBOList);
 
         groupJsonBOList.forEach(groupJsonBO -> {
             Integer dropTableId = groupJsonBO.getId();
-            List<DropTableBO> dropTableBOList = dropTableQueryService.queryByDropTableId(dropTableId);
+            List<DropTableBO> dropTableBOList;
+            try {
+                dropTableBOList = dropTableQueryService.queryByDropTableId(dropTableId);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+                throw new QueryException("没有查询到掉落组信息");
+            }
             dropTableBOList.forEach(dropTableBO -> {
-                String finalRate = dropTableBO.getRate() + "/" + dropTableBO.getRate();
-                if (dropTableBO.getDropTableType() == DropTypeEnum.QUANZHONG.getCode()) {
-//                    BigDecimal baolv = new BigDecimal(groupJsonBO.getRate()).divide(new BigDecimal(sumRateMap.get(jsonBO.getId())), 10, RoundingMode.HALF_UP).multiply(new BigDecimal(100));
-                    finalRate =  groupJsonBO.getRate() + "/" + sumRateMap.get(jsonBO.getId());
+                dropTableBO.setDropTableType(jsonBO.getType());
+                dropTableBO.setDropTableTypeStr(dropTypeStr);
+                String finalRate = groupJsonBO.getRate() + "";
+                if (dropType == DropTypeEnum.QUANZHONG.getCode()) {
+                    finalRate = groupJsonBO.getRate() + "/" + sumRateMap.get(jsonBO.getId());
                 }
                 dropTableBO.setFinalRate(finalRate);
                 dropTableBO.setRate(groupJsonBO.getRate());
@@ -81,8 +97,8 @@ public class DropConfigQueryServiceImpl implements DropConfigQueryService, BaseS
 
 
         dropGroupBO.setDropGroupId(jsonBO.getId());
-        dropGroupBO.setDropType(jsonBO.getType());
-        dropGroupBO.setDropTypeStr(BaseEnum.valueOfEnum(DropTypeEnum.class, jsonBO.getType()).getDesc());
+        dropGroupBO.setDropType(dropType);
+        dropGroupBO.setDropTypeStr(dropTypeStr);
         dropGroupBO.setDropTables(allList);
         return dropGroupBO;
     }

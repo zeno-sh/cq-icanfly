@@ -3,6 +3,7 @@ package com.zeno.cqicanfly.bxcq.service;
 import com.zeno.cqicanfly.bxcq.bo.DropTableBO;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @Author zeno
@@ -10,5 +11,5 @@ import java.util.List;
  */
 public interface DropTableQueryService {
 
-    List<DropTableBO> queryByDropTableId(Integer dropTableId);
+    List<DropTableBO> queryByDropTableId(Integer dropTableId) throws ExecutionException;
 }

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,13 +23,13 @@ class StdItemQueryServiceImplTest extends BaseTest {
     private StdItemQueryService stdItemQueryService;
 
     @Test
-    void queryAllItems() {
+    void queryAllItems() throws ExecutionException {
         List<StdItemBO> stdItemBOS = stdItemQueryService.queryAllItems();
         System.out.println(JSON.toJSONString(stdItemBOS));
     }
 
     @Test
-    void batchQueryByItemIds() {
+    void batchQueryByItemIds() throws ExecutionException {
         List<StdItemBO> stdItemBOS = stdItemQueryService.batchQueryByItemIds(Lists.newArrayList(1, 199));
         System.out.println(JSON.toJSONString(stdItemBOS));
     }

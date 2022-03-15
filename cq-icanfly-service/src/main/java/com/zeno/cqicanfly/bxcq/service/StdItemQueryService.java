@@ -3,6 +3,7 @@ package com.zeno.cqicanfly.bxcq.service;
 import com.zeno.cqicanfly.bxcq.bo.StdItemBO;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @Author zeno
@@ -10,8 +11,8 @@ import java.util.List;
  */
 public interface StdItemQueryService {
 
-    List<StdItemBO> queryAllItems();
+    List<StdItemBO> queryAllItems() throws ExecutionException;
 
-    List<StdItemBO> batchQueryByItemIds(List<Integer> itemIds);
+    List<StdItemBO> batchQueryByItemIds(List<Integer> itemIds) throws ExecutionException;
 
 }

@@ -2,6 +2,8 @@ package com.zeno.cqicanfly.bxcq.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.common.collect.Lists;
 import com.zeno.cqicanfly.bxcq.bo.MonsterBO;
 import com.zeno.cqicanfly.bxcq.bo.StdItemBO;
@@ -21,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author zeno
@@ -34,19 +38,25 @@ public class StdItemQueryServiceImpl implements StdItemQueryService, BaseService
     @Autowired
     private ConfigFileService configFileService;
 
+    Cache<String, List<StdItemBO>> cacheItems = CacheBuilder.newBuilder().expireAfterAccess(12, TimeUnit.HOURS).build();
+
+    private final String fileName = "StdItems.config";
+
     @Override
-    public List<StdItemBO> queryAllItems() {
-        ConfigFileDTO monsterFile = configFileService.queryByFileName("StdItems.config");
-        if (monsterFile == null) {
-            throw new DbQueryException("查询怪物配置文件失败");
-        }
-        Integer fileId = monsterFile.getFileId();
-        FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
-        return jsonObjConverterBo(fileEditDTO.getFileJson());
+    public List<StdItemBO> queryAllItems() throws ExecutionException {
+        return cacheItems.get(fileName, ()->{
+            ConfigFileDTO monsterFile = configFileService.queryByFileName(fileName);
+            if (monsterFile == null) {
+                throw new DbQueryException("查询怪物配置文件失败");
+            }
+            Integer fileId = monsterFile.getFileId();
+            FileEditDTO fileEditDTO = fileEditService.queryPublishByFileId(fileId);
+            return jsonObjConverterBo(fileEditDTO.getFileJson());
+        });
     }
 
     @Override
-    public List<StdItemBO> batchQueryByItemIds(List<Integer> itemIds) {
+    public List<StdItemBO> batchQueryByItemIds(List<Integer> itemIds) throws ExecutionException {
         List<StdItemBO> stdItemBOS = queryAllItems();
         List<StdItemBO> findItemList = Lists.newArrayList();
         stdItemBOS.forEach(bo -> {
